@@ -39,7 +39,7 @@ async function nuclearPush() {
     const allFiles = getAllFiles(dir);
     console.log(`📦 Staging ${allFiles.length} files...`);
     for (const filepath of allFiles) {
-        if (filepath.includes('push') || filepath === 'package-lock.json') continue;
+        if (filepath.includes('push')) continue;
         await git.add({ fs, dir, filepath });
     }
 
@@ -71,3 +71,4 @@ async function nuclearPush() {
 }
 
 nuclearPush().catch(console.error);
+
